@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fair.io/schema-v0.0.0.json",
+  "title": "Annual OSS Pledge Report",
+  "description": "A company's annual OSS Pledge self-report",
+  "type": "object",
+  "properties": {
+    "dateYearEnding": {
+      "description": "The end date for the year in question",
+      "type": "string",
+      "format": "date"
+    },
+    "averageNumberOfDevs": {
+      "description": "The estimated average number of software developers on staff during the year",
+      "type": "number",
+      "exclusiveMinimum" : 0
+    },
+    "payments": {
+      "description": "The company's payments to OSS maintainers completed during the year",
+      "type": "array",
+      "items": {
+        "minItems": 1,
+        "type": "object",
+        "properties": {
+          "amount": {
+            "$comment": "Please convert non-USD to USD (approximation is fine).",
+            "description": "Amount in whole US dollars",
+            "type": "number",
+            "exclusiveMinimum" : 0
+          },
+          "recipient": {
+            "description": "The recipient of the payment",
+            "$comment": "platforms from https://github.com/github/docs/blob/a9a9dd1f948b6e0257ed5da0a9b94cc1be2aa097/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository.md",
+            "$comment": "foundations from https://github.com/Punderthings/fossfoundation/tree/bcdff88533dcd9bf90e2326db7a4363ac8344207/_foundations",
+            "enum": [
+              "community_bridge",
+              "github",
+              "issuehunt",
+              "ko_fi",
+              "liberapay",
+              "open_collective",
+              "patreon",
+              "tidelift",
+              "polar",
+              "buy_me_a_coffee",
+
+              "almalinux",
+              "apereo",
+              "asf",
+              "benetech",
+              "biobricks",
+              "bytecode",
+              "creativecommons",
+              "django",
+              "dotnet",
+              "drupal",
+              "eclipse",
+              "eff",
+              "ffpc",
+              "freebsd",
+              "fsf",
+              "fsfe",
+              "fsfse",
+              "fsharp",
+              "gentoo",
+              "gnome",
+              "haiku",
+              "haskell",
+              "idcommons",
+              "isc",
+              "joomla",
+              "kde",
+              "kuali",
+              "lf",
+              "lfcharities",
+              "linuxkernel",
+              "list.json",
+              "llvm",
+              "mozilla",
+              "netbsd",
+              "numfocus",
+              "oasis",
+              "ocf",
+              "oeglobal",
+              "oisf",
+              "olpc",
+              "omsf",
+              "opencompute",
+              "openconnectivity",
+              "openid",
+              "openjsf",
+              "openrobotics",
+              "openstack",
+              "openstreetmap",
+              "opentransit",
+              "osc",
+              "oset",
+              "osgeo",
+              "osi",
+              "owasp",
+              "pculture",
+              "perl",
+              "plone",
+              "postgresql",
+              "python",
+              "rails",
+              "raspberrypi",
+              "raspberrypina",
+              "rubycentral",
+              "rust",
+              "sahana",
+              "scale",
+
+              "other"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "required": ["dateYearEnding", "averageNumberOfDevs", "payments"]
+}
+
